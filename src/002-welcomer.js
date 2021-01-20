@@ -25,6 +25,40 @@ class WelcomerZerotwo {
 
     const canvas = Canvas.createCanvas(800, 270);
     const ctx = canvas.getContext("2d");
+	function roundImg(x,y,w,h,r){
+            ctx.beginPath();
+            ctx.moveTo(x + r, y);
+            ctx.lineTo(x + w - r, y);
+            ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+            ctx.lineTo(x + w, y + h - r);
+            ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+            ctx.lineTo(x + r, y + h);
+            ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+            ctx.lineTo(x, y + r);
+            ctx.quadraticCurveTo(x, y, x + r, y);
+            ctx.closePath();
+        }
+        function bR(){
+            ctx.save()
+            roundImg(20, 20, canvas.width, canvas.height, 50)
+            roundImg(-20, -20, canvas.width, canvas.height, 50)
+            roundImg(-30, 30, canvas.width, canvas.height, 50)
+            ctx.clip()
+            ctx.save()
+            roundImg(-30, -30, canvas.width, canvas.height, 50)
+            ctx.clip()
+            ctx.save()
+            roundImg(-30, -30, canvas.width, canvas.height, 50)
+            ctx.clip()
+            ctx.save()
+            roundImg(-30, -30, canvas.width, canvas.height, 50)
+            roundImg(30, -30, canvas.width, canvas.height, 50)
+            ctx.clip()
+            ctx.save()
+            roundImg(30, -30, canvas.width, canvas.height, 50)
+            roundImg(30, 30, canvas.width, canvas.height, 50)
+            ctx.clip()
+        }
     if (blur) {
       const background = await jimp.read(link);
 
@@ -46,7 +80,7 @@ class WelcomerZerotwo {
     let blurImage = await Canvas.loadImage(
       "https://cdn.discordapp.com/attachments/796548640755023883/801045183974211614/Empty.png"
     );
-
+	bR();
 	// Select the color of the stroke
   //ctx.strokeStyle = '#000504';
   
@@ -79,7 +113,8 @@ class WelcomerZerotwo {
 
     const avatar = await Canvas.loadImage(raw);
       // draws the avatar on the main canvas
-    ctx.drawImage(avatar, 72, 51, 170, 170);
+    //ctx.drawImage(avatar, 72, 51, 170, 170);
+	ctx.drawImage(avatar, 45, 45, 200, 200);
 
     return canvas.toBuffer();
   }
