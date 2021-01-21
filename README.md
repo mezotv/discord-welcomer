@@ -1,5 +1,7 @@
 # ZeroTwo-welcomer for discord
 
+# Thanks to Dev#0766 for helping me out with the package!
+
 This package is a rewrite of canvas-sepai!
 
 ## WELCOME IMAGE GENERATOR
@@ -7,7 +9,7 @@ This package is a rewrite of canvas-sepai!
 ```js
 const Discord = require("discord.js");
 const bot = new Discord.Client();
-const { WelcomerZerotwo } = require("002-welcome");
+const { WelcomerZerotwo } = require("zerotwo-welcomer");
 const welcome = new WelcomerZerotwo();
 
 bot.on("ready", () => {
@@ -32,7 +34,7 @@ bot.on("guildMemberAdd", async (member) => {
 bot.login("TOKEN");
 ```
 
-![](https://cdn.discordapp.com/attachments/791114608215588874/801172386661007420/unknown.png)
+![](https://cdn.discordapp.com/attachments/792534299508605001/801534585926058024/unknown.png)
 
 ### OPTIONS OF WELCOME
 
