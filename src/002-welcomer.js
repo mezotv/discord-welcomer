@@ -2,7 +2,7 @@ const Canvas = require("canvas");
 const jimp = require("jimp");
 const gradians = require("../gradiants.json");
 class WelcomerZerotwo {
-  async welcome(member, { link, gradiant, blur } = {}) {
+  async welcome(member, { link, gradiant, blur, text } = {}) {
     if (blur !== false) {
       blur = true;
     }
@@ -25,40 +25,40 @@ class WelcomerZerotwo {
 
     const canvas = Canvas.createCanvas(800, 270);
     const ctx = canvas.getContext("2d");
-	function roundImg(x,y,w,h,r){
-            ctx.beginPath();
-            ctx.moveTo(x + r, y);
-            ctx.lineTo(x + w - r, y);
-            ctx.quadraticCurveTo(x + w, y, x + w, y + r);
-            ctx.lineTo(x + w, y + h - r);
-            ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
-            ctx.lineTo(x + r, y + h);
-            ctx.quadraticCurveTo(x, y + h, x, y + h - r);
-            ctx.lineTo(x, y + r);
-            ctx.quadraticCurveTo(x, y, x + r, y);
-            ctx.closePath();
-        }
-        function bR(){
-            ctx.save()
-            roundImg(20, 20, canvas.width, canvas.height, 50)
-            roundImg(-20, -20, canvas.width, canvas.height, 50)
-            roundImg(-30, 30, canvas.width, canvas.height, 50)
-            ctx.clip()
-            ctx.save()
-            roundImg(-30, -30, canvas.width, canvas.height, 50)
-            ctx.clip()
-            ctx.save()
-            roundImg(-30, -30, canvas.width, canvas.height, 50)
-            ctx.clip()
-            ctx.save()
-            roundImg(-30, -30, canvas.width, canvas.height, 50)
-            roundImg(30, -30, canvas.width, canvas.height, 50)
-            ctx.clip()
-            ctx.save()
-            roundImg(30, -30, canvas.width, canvas.height, 50)
-            roundImg(30, 30, canvas.width, canvas.height, 50)
-            ctx.clip()
-        }
+    function roundImg(x, y, w, h, r) {
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.lineTo(x + w - r, y);
+      ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+      ctx.lineTo(x + w, y + h - r);
+      ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+      ctx.lineTo(x + r, y + h);
+      ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+      ctx.lineTo(x, y + r);
+      ctx.quadraticCurveTo(x, y, x + r, y);
+      ctx.closePath();
+    }
+    function bR(r) {
+      ctx.save()
+      roundImg(20, 20, canvas.width, canvas.height, r)
+      roundImg(-20, -20, canvas.width, canvas.height, r)
+      roundImg(-30, 30, canvas.width, canvas.height, r)
+      ctx.clip()
+      ctx.save()
+      roundImg(-30, -30, canvas.width, canvas.height, r)
+      ctx.clip()
+      ctx.save()
+      roundImg(-30, -30, canvas.width, canvas.height, r)
+      ctx.clip()
+      ctx.save()
+      roundImg(-30, -30, canvas.width, canvas.height, r)
+      roundImg(30, -30, canvas.width, canvas.height, r)
+      ctx.clip()
+      ctx.save()
+      roundImg(30, -30, canvas.width, canvas.height, r)
+      roundImg(30, 30, canvas.width, canvas.height, r)
+      ctx.clip()
+    }
     if (blur) {
       const background = await jimp.read(link);
 
@@ -67,54 +67,93 @@ class WelcomerZerotwo {
       let mraw = await background.getBufferAsync("image/png");
 
       const fixedbkg = await Canvas.loadImage(mraw);
+      bR(20);
 
       ctx.drawImage(fixedbkg, 0, 0, canvas.width, canvas.height);
     } else {
       const fixedbkg = await Canvas.loadImage(link);
+      bR(20);
 
       ctx.drawImage(fixedbkg, 0, 0, canvas.width, canvas.height);
     }
-
     ctx.strokeRect(0, 0, canvas.width, canvas.height);
 
     let blurImage = await Canvas.loadImage(
       "https://cdn.discordapp.com/attachments/796548640755023883/801045183974211614/Empty.png"
     );
-	bR();
-	// Select the color of the stroke
-  //ctx.strokeStyle = '#000504';
-  
+    
+    // Select the color of the stroke
+    //ctx.strokeStyle = '#000504';
+
     ctx.drawImage(blurImage, 0, 0, canvas.width, canvas.height);
-    let xname = "Welcome <3";
+    let xname = text;
 
     ctx.font = `bold 50px Life`;
     ctx.fillStyle = "#FFFFFF";
     ctx.textAlign = "start";
-    //ctx.stroke()
+    ctx.shadowColor = 'black';
+    ctx.shadowBlur = 10;
 
     const name =
-      xname.length > 12 ? xname.substring(0, 12).trim() + "..." : xname;
+      xname.length > 15 ? xname.substring(0, 15).trim() + "..." : xname;
     ctx.fillText(`${name}`, 335, 113);
     //ctx.strokeText(`${name}`, 335, 113);
     //ctx.stroke()
 
     ctx.font = `bold 40px Life`;
     ctx.fillStyle = "#FFFFFF";
-    
+    ctx.shadowColor = 'black';
+    ctx.shadowBlur = 10;
+
 
     ctx.fillText(`${member.user.username}`, 381, 179);
 
     let image = await jimp.read(
-      member.user.displayAvatarURL({ format: "jpg", dynamic: true })
+      member.user.displayAvatarURL({ format: "png", dynamic: true })
     );
     image.resize(2048, 2048);
-    image.circle();
+    ctx.shadowColor = 'black';
+    ctx.shadowBlur = 10;
     let raw = await image.getBufferAsync("image/png");
 
     const avatar = await Canvas.loadImage(raw);
-      // draws the avatar on the main canvas
+    // draws the avatar on the main canvas
     //ctx.drawImage(avatar, 72, 51, 170, 170);
-	ctx.drawImage(avatar, 45, 45, 200, 200);
+    ctx.drawImage(avatar, 50, 50, 170, 170);
+    function roundPfp(x, y, w, h, r) {
+      ctx.beginPath();
+      ctx.moveTo(x + r, y);
+      ctx.lineTo(x + w - r, y);
+      ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+      ctx.lineTo(x + w, y + h - r);
+      ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+      ctx.lineTo(x + r, y + h);
+      ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+      ctx.lineTo(x, y + r);
+      ctx.quadraticCurveTo(x, y, x + r, y);
+      ctx.closePath();
+    }
+    function bR(r) {
+      ctx.save()
+      roundPfp(20, 20, canvas.width, canvas.height, r)
+      roundPfp(-20, -20, canvas.width, canvas.height, r)
+      roundPfp(-30, 30, canvas.width, canvas.height, r)
+      ctx.clip()
+      ctx.save()
+      roundPfp(-30, -30, canvas.width, canvas.height, r)
+      ctx.clip()
+      ctx.save()
+      roundPfp(-30, -30, canvas.width, canvas.height, r)
+      ctx.clip()
+      ctx.save()
+      roundPfp(-30, -30, canvas.width, canvas.height, r)
+      roundPfp(30, -30, canvas.width, canvas.height, r)
+      ctx.clip()
+      ctx.save()
+      roundPfp(30, -30, canvas.width, canvas.height, r)
+      roundPfp(30, 30, canvas.width, canvas.height, r)
+      ctx.clip()
+    }
 
     return canvas.toBuffer();
   }

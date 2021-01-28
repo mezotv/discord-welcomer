@@ -1,6 +1,6 @@
 # ZeroTwo-welcomer for discord
 
-# Thanks to Dev#0766 for helping me out with the package!
+## Thanks to Dev#0766 for helping me out with the package!
 
 This package is a rewrite of canvas-sepai!
 
@@ -24,6 +24,7 @@ bot.on("guildMemberAdd", async (member) => {
 
   let data = await welcome.welcome(member, {
     link: "https://wallpapercave.com/wp/wp5128415.jpg",
+    text: "welcome <3",
   });
 
   const attachment = new Discord.MessageAttachment(data, "welcome-image.png");
