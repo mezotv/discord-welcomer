@@ -68,3 +68,4 @@ let data = await welcome.welcome(member, { gradiant: "peakblue" });
 ```
 
 [![Discord Bots](https://top.gg/api/widget/770007992262590504.svg)](https://top.gg/bot/770007992262590504)
+[![Discord Bots](https://top.gg/api/widget/368521195940741122.svg)](https://top.gg/bot/368521195940741122)

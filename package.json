@@ -1,6 +1,6 @@
 {
   "name": "zerotwo-welcomer",
-  "version": "1.5.5",
+  "version": "1.5.8",
   "description": "zerotwo-welcomer is a package used by the 002 Discord bot for welcome cards!",
   "main": "index.js",
   "scripts": {
