@@ -1,8 +1,7 @@
 const Canvas = require("canvas");
-const jimp = require("jimp");
 const gradians = require("../gradiants.json");
 class WelcomerZerotwo {
-  async welcome(member, { link, gradiant, blur, text } = {}) {
+  async welcome(member, { link, gradiant, blur, text, text_color, username_color } = {}) {
     if (blur !== false) {
       blur = true;
     }
@@ -10,17 +9,10 @@ class WelcomerZerotwo {
       return console.log("You can not use link and gradiant at a same time");
     }
 
-    if (!link) {
-      if (gradiant) {
-        let color = gradians.find(x => x.name === gradiant.toLowerCase());
-        if (!color) {
-          return console.log("Invalid Gradiant Color :v");
-        }
-
-        link = color.link;
-      } else {
-        link = "https://cdn.discordapp.com/attachments/770615280534552578/801041424929259530/welcome_1.png";
-      }
+    if(link == "invisible") {
+      link = "https://cdn.discordapp.com/attachments/756847669229387826/803659592894644284/unsichbarkeit.png"
+    } else if(link == "standart") {
+      link = "https://cdn.discordapp.com/attachments/770615280534552578/801041424929259530/welcome_1.png"
     }
 
     const canvas = Canvas.createCanvas(800, 270);
@@ -88,8 +80,8 @@ class WelcomerZerotwo {
     ctx.drawImage(blurImage, 0, 0, canvas.width, canvas.height);
     let xname = text;
 
-    ctx.font = `bold 50px Life`;
-    ctx.fillStyle = "#FFFFFF";
+    ctx.font = `bold 40px Life`;
+    ctx.fillStyle = `${text_color}`;
     ctx.textAlign = "start";
     ctx.shadowColor = 'black';
     ctx.shadowBlur = 10;
@@ -101,7 +93,7 @@ class WelcomerZerotwo {
     //ctx.stroke()
 
     ctx.font = `bold 40px Life`;
-    ctx.fillStyle = "#FFFFFF";
+    ctx.fillStyle = `${username_color}`;
     ctx.shadowColor = 'black';
     ctx.shadowBlur = 10;
 
@@ -111,8 +103,6 @@ class WelcomerZerotwo {
     let image = await jimp.read(
       member.user.displayAvatarURL({ format: "png", dynamic: true })
     );
-    image.resize(2048, 2048);
-    ctx.shadowColor = 'black';
     ctx.shadowBlur = 10;
     let raw = await image.getBufferAsync("image/png");
 
