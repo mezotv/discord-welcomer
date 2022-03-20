@@ -1,4 +1,4 @@
-# ZeroTwo-welcomer for discord
+# discord-welcomer for discord.js
 
 ## Thanks to Dev#0766 for helping me out with the package!
 
@@ -66,6 +66,3 @@ let data = await welcome.welcome(member, {
 let data = await welcome.welcome(member, { gradiant: "peakblue" });
 //GRADIANTS NAME - coldsky, peakblue, pinkman, aqua, darkness, angel
 ```
-
-[![Discord Bots](https://top.gg/api/widget/770007992262590504.svg)](https://top.gg/bot/770007992262590504)
-[![Discord Bots](https://top.gg/api/widget/368521195940741122.svg)](https://top.gg/bot/368521195940741122)

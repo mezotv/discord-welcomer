@@ -1,14 +1,14 @@
 {
-  "name": "zerotwo-welcomer",
-  "version": "1.5.8",
-  "description": "zerotwo-welcomer is a package used by the 002 Discord bot for welcome cards!",
+  "name": "discord-welcomer",
+  "version": "1.6.0",
+  "description": "discord-welcomer is a package for making pretty welcome cards for your discord bot",
   "main": "index.js",
   "scripts": {
     "test": "node index.js",
     "start": "node index.js"
   },
   "keywords": [
-    "002",
+    "mezo",
     "canvas",
     "discord.js",
     "welcomer",
@@ -17,9 +17,9 @@
   "author": "Mezo",
   "license": "MIT",
   "bugs": {
-    "url": "https://discord.gg/6suURVSn78"
+    "url": "https://github.com/mezotv/discord-welcomer/issues"
   },
-  "homepage": "https://discord.gg/6suURVSn78",
+  "homepage": "https://github.com/mezotv/discord-welcomer",
   "dependencies": {
     "canvas": "^2.6.1",
     "jimp": "^0.14.0",
