@@ -88,7 +88,7 @@ class WelcomerZerotwo {
 
     const name =
       xname.length > 15 ? xname.substring(0, 15).trim() + "..." : xname;
-    ctx.fillText(`${name}`, 335, 113);
+    ctx.fillText(`${name}`, canvas.width / 2.5, canvas.height / 1.8);
     //ctx.strokeText(`${name}`, 335, 113);
     //ctx.stroke()
 
@@ -98,7 +98,7 @@ class WelcomerZerotwo {
     ctx.shadowBlur = 10;
 
 
-    ctx.fillText(`${member.user.username}`, 381, 179);
+    ctx.fillText(`${member.user.username}`, canvas.width / 2.5, canvas.height / 1.8);
 
     let image = await jimp.read(
       member.user.displayAvatarURL({ format: "png", dynamic: true })
