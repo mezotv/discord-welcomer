@@ -1,6 +1,7 @@
 const Canvas = require("canvas");
 const gradians = require("../gradiants.json");
-class WelcomerZerotwo {
+const jimp = require("jimp")
+class WelcomerDiscord {
   async welcome(member, { link, gradiant, blur, text, text_color, username_color } = {}) {
     if (blur !== false) {
       blur = true;
@@ -149,4 +150,4 @@ class WelcomerZerotwo {
   }
 }
 
-module.exports = WelcomerZerotwo;
+module.exports = WelcomerDiscord;

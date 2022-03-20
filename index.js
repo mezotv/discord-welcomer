@@ -1,4 +1,4 @@
 module.exports = {
-  WelcomerZerotwo: require("./src/002-welcomer.js")
+  WelcomerDiscord: require("./src/discord-welcomer.js")
 }
 
