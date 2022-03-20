@@ -1,6 +1,5 @@
 # discord-welcomer for discord.js
 
-## Thanks to Dev#0766 for helping me out with the package!
 
 This package is a rewrite of canvas-sepai!
 
@@ -9,8 +8,8 @@ This package is a rewrite of canvas-sepai!
 ```js
 const Discord = require("discord.js");
 const bot = new Discord.Client();
-const { WelcomerZerotwo } = require("zerotwo-welcomer");
-const welcome = new WelcomerZerotwo();
+const { WelcomerDiscord } = require("discord-welcomer");
+const welcome = new WelcomerDiscord();
 
 bot.on("ready", () => {
   console.log("Ready!");

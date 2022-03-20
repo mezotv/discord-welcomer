@@ -1,6 +1,6 @@
 {
   "name": "discord-welcomer",
-  "version": "1.6.1",
+  "version": "1.6.2",
   "description": "discord-welcomer is a package for making pretty welcome cards for your discord bot",
   "main": "index.js",
   "scripts": {
