@@ -1,7 +1,7 @@
 # discord-welcomer for discord.js
 
 
-This package is a rewrite of canvas-sepai!
+This package is a rewrite of canvas-senpai!
 
 ## WELCOME IMAGE GENERATOR
 
