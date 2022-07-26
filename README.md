@@ -31,7 +31,7 @@ bot.on("guildMemberAdd", async (member) => {
   channel.send(`Welcome to the server, ${member.user.username}!`, attachment);
 });
 
-bot.login("TOKEN");
+bot.login("TOKEN"); // Check https://discord.com/developers/applications for the token
 ```
 
 ![](https://cdn.discordapp.com/attachments/792534299508605001/801534585926058024/unknown.png)
