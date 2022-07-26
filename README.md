@@ -1,4 +1,4 @@
-# discord-welcomer for discord.js
+# [discord-welcomer for discord.js](https://www.npmjs.com/package/discord-welcomer)
 
 
 This package is a rewrite of canvas-senpai!
